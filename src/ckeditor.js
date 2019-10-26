@@ -81,6 +81,7 @@ BalloonEditor.defaultConfig = {
 			'mediaEmbed',
 			'undo',
 			'redo',
+			'iLetter',
 		]
 	},
 	image: {
