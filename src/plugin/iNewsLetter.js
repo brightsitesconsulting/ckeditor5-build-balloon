@@ -48,7 +48,6 @@ class InsertINewsLetter extends Plugin {
 			}
 		} );
 
-		// Create bold command.
 		editor.commands.add( ILETTER, new AttributeCommand( editor, ILETTER ) );
 
 		// Set the Ctrl+B keystroke.

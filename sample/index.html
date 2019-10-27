@@ -23,12 +23,45 @@
 		<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
 	</figure>
 
-	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
+	<p> &rdquo; &euro;You can use this sample to validate whether <a href="index.html" target="_blank">your</a> <a title="test title" href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
 </div>
 
 <script src="../build/ckeditor.js"></script>
 <script>
-	BalloonEditor.create( document.querySelector( '#editor' ) )
+  function toUnicode(theString) {
+    let unicodeString = '';
+    for (let i = 0; i < theString.length; i++) {
+      let theUnicode = theString.charCodeAt(i).toString(16).toUpperCase();
+      while (theUnicode.length < 4) {
+        theUnicode = `0${theUnicode}`;
+      }
+      unicodeString += theUnicode;
+    }
+    return String.fromCodePoint(parseInt(unicodeString, 16));
+  }
+	BalloonEditor.create( document.querySelector( '#editor' ), {
+	  specialCharacters: {
+	    callbacks: {
+          searchSpecialCharactersRequested: () => new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve(toUnicode('©'));
+            }, 100)
+          }),
+        }
+	  },
+      searchArticleLink: {
+        callbacks: {
+			searchArticleRequested: () => new Promise((resolve, reject) => {
+			  setTimeout(() => {
+			    resolve({
+				  href: 'https://www.youtube.com',
+				  title: 'some title'
+				});
+			  }, 100)
+			}),
+		  }
+	  }
+	})
 		.then( editor => {
 			window.editor = editor;
 		} )

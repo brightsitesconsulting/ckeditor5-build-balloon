@@ -28,8 +28,9 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
-import InsertINewsLetter from '../src/plugin/iNewsLetter';
 import ArticleLink from './plugin/ArticleLink/ArticleLink';
+import InsertINewsLetter from './plugin/iNewsLetter';
+import SpecialCharacters from './plugin/SpecialCharacters/SpecialCharacters';
 
 export default class BalloonEditor extends BalloonEditorBase {}
 
@@ -57,7 +58,8 @@ BalloonEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	InsertINewsLetter,
-	ArticleLink
+	ArticleLink,
+	SpecialCharacters
 ];
 
 // Editor configuration.
@@ -78,10 +80,12 @@ BalloonEditor.defaultConfig = {
 			'imageUpload',
 			'blockQuote',
 			'insertTable',
+			'insertArticleLink',
 			'mediaEmbed',
 			'undo',
 			'redo',
 			'iLetter',
+			'specialCharacters',
 		]
 	},
 	image: {
