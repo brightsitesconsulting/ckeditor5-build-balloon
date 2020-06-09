@@ -17,6 +17,7 @@ import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import List from '@ckeditor/ckeditor5-list/src/list';
+// import Link from '@ckeditor/ckeditor5-link/src/link';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
@@ -46,6 +47,7 @@ BalloonEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
+  	// Link,
 	ArticleLink,
 	SpecialCharacters
 ];
