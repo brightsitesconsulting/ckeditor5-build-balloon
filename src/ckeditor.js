@@ -17,14 +17,13 @@ import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import List from '@ckeditor/ckeditor5-list/src/list';
-// import Link from '@ckeditor/ckeditor5-link/src/link';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 
-import ArticleLink from './plugin/ArticleLink/ArticleLink';
+import Link from './plugin/link/src/link';
 import SpecialCharacters from './plugin/SpecialCharacters/SpecialCharacters';
 
 export default class BalloonEditor extends BalloonEditorBase {}
@@ -47,8 +46,7 @@ BalloonEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
-  	// Link,
-	ArticleLink,
+  	Link,
 	SpecialCharacters
 ];
 
