@@ -53,6 +53,15 @@ export function ensureSafeUrl( url ) {
 	return isSafeUrl( url ) ? url : '#';
 }
 
+export function prependFrontEndURL(url, base) {
+
+  if (/^\//.test(url) && base) {
+	return base + url;
+  }
+
+  return url;
+}
+
 // Checks whether the given URL is safe for the user (does not contain any malicious code).
 //
 // @param {String} url URL to check.

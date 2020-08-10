@@ -100,7 +100,7 @@ export default class LinkUI extends Plugin {
 	 */
 	_createActionsView() {
 		const editor = this.editor;
-		const actionsView = new LinkActionsView( editor.locale );
+		const actionsView = new LinkActionsView( editor.locale, editor );
 		const linkCommand = editor.commands.get( 'link' );
 		const unlinkCommand = editor.commands.get( 'unlink' );
 
@@ -236,12 +236,14 @@ export default class LinkUI extends Plugin {
 		// Handle click on view document and show panel when selection is placed inside the link element.
 		// Keep panel open until selection will be inside the same link element.
 		this.listenTo( viewDocument, 'click', () => {
+		  // make sure to wait the ckeditor finish to initialise on cms
+		  setTimeout(() => {
 			const parentLink = this._getSelectedLinkElement();
-
 			if ( parentLink ) {
-				// Then show panel but keep focus inside editor editable.
-				this._showUI();
+			  // Then show panel but keep focus inside editor editable.
+			  this._showUI();
 			}
+		  })
 		} );
 
 		// Focus the form if the balloon is visible and the Tab key has been pressed.
